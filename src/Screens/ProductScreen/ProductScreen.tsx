@@ -24,7 +24,9 @@ const ProductScreen = () => {
 
                 }>
                 {product.options.map(option => (
-                    <Picker.Item label={option} value={option} />
+                    <Picker.Item label={option} value={option} 
+                     key={`${product.id}-${option}`}
+                    />
                 ))}
             </Picker>
             {/* Price */}
