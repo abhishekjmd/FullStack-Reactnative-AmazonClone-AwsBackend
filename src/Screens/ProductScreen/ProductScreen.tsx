@@ -16,7 +16,7 @@ const ProductScreen = () => {
             <Text style={styles.title} > {product.title} </Text>
             {/* Image carousel */}
             {/* option selector */}
-            <ImageCarousel />
+            < ImageCarousel images={product.images} />
             <Picker
                 selectedValue={selectedOptions}
                 onValueChange={(itemValue) =>
