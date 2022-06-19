@@ -1,24 +1,26 @@
-import { StyleSheet, Text, View, useColorScheme,StatusBar, } from 'react-native'
+import { StyleSheet, Text, View, useColorScheme, StatusBar, } from 'react-native'
 import React from 'react'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-
-
-import ProductScreen from './src/Screens/ProductScreen/ProductScreen';
+import AddressScreen from './src/Screens/AddressScreen/AddressScreen';
+import Navigation from './src/Router/Navigation';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     flex: 1,
   };
   return (
-    <View style={backgroundStyle} >
+    <View style={styles.backgroundStyle} >
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ProductScreen />
+      <Navigation />
     </View>
   )
 }
 
 export default App
 
-// const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  backgroundStyle: {
+    flex: 1,
+  }
+})

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, Image, useWindowDimensions } from 'react-native'
 import React, { useState, useCallback } from 'react'
-const ImageCarousel = ({ images }: { images: [string] }) => {
+const ImageCarousel = ({ images }: { images: string[] }) => {
   const WindowWidth = useWindowDimensions().width;
   const [ActiveIndex, setActiveIndex] = useState(0)
   const onFlatListUpdate = useCallback(({ viewableItems }) => {
@@ -27,13 +27,13 @@ const ImageCarousel = ({ images }: { images: [string] }) => {
       />
       <View style={styles.dots} >
         {images.map((image, index) => (
-          <View 
+          <View
             key={index}
-          style={[styles.dot,
-          {
-            backgroundColor: index === ActiveIndex ? '#c9c9c9' : '#ededed'
-          }
-          ]} />
+            style={[styles.dot,
+            {
+              backgroundColor: index === ActiveIndex ? '#c9c9c9' : '#ededed'
+            }
+            ]} />
         ))}
       </View>
     </View>

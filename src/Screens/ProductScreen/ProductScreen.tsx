@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import product from '../../data/product'
 import styles from './Styles'
@@ -12,7 +12,7 @@ const ProductScreen = () => {
     const [quantity, setQuantity] = useState(1);
 
     return (
-        <View style={styles.root} >
+        <ScrollView style={styles.root} showsVerticalScrollIndicator={false} >
             <Text style={styles.title} > {product.title} </Text>
             {/* Image carousel */}
             {/* option selector */}
@@ -24,14 +24,14 @@ const ProductScreen = () => {
 
                 }>
                 {product.options.map(option => (
-                    <Picker.Item label={option} value={option} 
-                     key={`${product.id}-${option}`}
+                    <Picker.Item label={option} value={option}
+                        key={`${product.id}-${option}`}
                     />
                 ))}
             </Picker>
             {/* Price */}
             <Text style={styles.price}>
-                {product.price}
+                 {product.price}
                 {product.oldPrice &&
                     <Text style={styles.Oldprice}>
                         {product.oldPrice}
@@ -39,7 +39,7 @@ const ProductScreen = () => {
                 }
             </Text>
             {/* Description */}
-            <Text style={styles.description}> {product.description} </Text>
+            <Text style={styles.description}>{product.description} </Text>
             {/* Quantity selector */}
             <QuantitySelector
                 quantity={quantity}
@@ -48,7 +48,8 @@ const ProductScreen = () => {
             {/* Buttons */}
             <Button text={'Add To Cart'} OnPress={() => (console.warn('Add to cart'))} />
             <Button text={'Buy Now'} OnPress={() => (console.warn('Buy now'))} />
-        </View>
+
+        </ScrollView>
     )
 }
 

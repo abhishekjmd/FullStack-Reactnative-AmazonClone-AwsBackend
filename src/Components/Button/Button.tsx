@@ -3,11 +3,12 @@ import React from 'react'
 interface ButtonProps {
     text: string;
     OnPress: () => void;
+    containerStyles?: object,
 }
 
-const Button = ({ text, OnPress }: ButtonProps) => {
+const Button = ({ text, OnPress, containerStyles }: ButtonProps) => {
     return (
-        <Pressable onPress={OnPress} style={styles.root} >
+        <Pressable onPress={OnPress} style={[styles.root, containerStyles]} >
             <Text style={styles.text} >{text}</Text>
         </Pressable>
     )
