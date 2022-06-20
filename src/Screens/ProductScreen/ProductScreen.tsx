@@ -6,8 +6,9 @@ import { Picker } from '@react-native-picker/picker';
 import QuantitySelector from '../../Components/QuantitySelector/QuantitySelector';
 import Button from '../../Components/Button/Button';
 import ImageCarousel from '../../Components/ImageCarousel/ImageCarousel';
-
+import {useRoute} from '@react-navigation/native';
 const ProductScreen = () => {
+    const Route = useRoute();
     const [selectedOptions, setSelectedOptions] = useState(product.options ? product.options[0] : null);
     const [quantity, setQuantity] = useState(1);
 
@@ -16,7 +17,7 @@ const ProductScreen = () => {
             <Text style={styles.title} > {product.title} </Text>
             {/* Image carousel */}
             {/* option selector */}
-            < ImageCarousel images={product.images} />
+            <ImageCarousel images={product.images} />
             <Picker
                 selectedValue={selectedOptions}
                 onValueChange={(itemValue) =>

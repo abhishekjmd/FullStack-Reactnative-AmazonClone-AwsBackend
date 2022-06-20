@@ -3,8 +3,12 @@ import React, { useState } from 'react'
 import CartProductItem from '../../Components/CartProductItem/CartProductItem'
 import cart from '../../data/cart'
 import Button from '../../Components/Button/Button'
-
+import {useNavigation} from '@react-navigation/native'
 const ShoppingCartScreen = () => {
+    const navigation = useNavigation();
+    const onProceedTOCheckout =()=>{
+        navigation.navigate('AddressScreen')
+    }
     const totalPrice = cart.reduce(
         (summedPrice, product) =>
             summedPrice + product.item.price * product.quantity,
@@ -25,7 +29,7 @@ const ShoppingCartScreen = () => {
                             <Text style={{ color: '#e47911' }} > ${totalPrice.toFixed(2)} </Text>
                         </Text>
                         <Button text='Proceed to checkout'
-                            OnPress={() => console.warn('go to checkout')}
+                            OnPress={onProceedTOCheckout}
                             containerStyles={{ backgroundColor: '#f7e300', borderColor: '#c7b702' }}
                         />
                     </View>

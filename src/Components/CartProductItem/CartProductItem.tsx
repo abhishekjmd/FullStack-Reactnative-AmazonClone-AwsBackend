@@ -1,7 +1,8 @@
-import { Text, View, Image,ScrollView } from 'react-native'
+import { Text, View, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
+import { useNavigation } from '@react-navigation/native';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
 interface CartProductItemProp {
     cartItem: {
@@ -22,8 +23,11 @@ interface CartProductItemProp {
 const CartProductItem = ({ cartItem }: CartProductItemProp) => {
     const { quantity: quantityProp, item } = cartItem;
     const [quantity, setQuantity] = useState(quantityProp);
+    const navigation = useNavigation();
     return (
-        <View style={styles.root}>
+        <Pressable
+            
+            style={styles.root}>
             <View style={styles.row}>
                 <Image
                     style={styles.image}
@@ -52,7 +56,7 @@ const CartProductItem = ({ cartItem }: CartProductItemProp) => {
             <View style={styles.quantityContainer} >
                 <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
             </View>
-        </View>
+        </Pressable>
     )
 }
 

@@ -4,10 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 // Importing screens
-import HomeScreen from '../Screens/HomeScreen/HomeScreen';
+import HomeStack from './HomeStack';
 import ProductScreen from '../Screens/ProductScreen/ProductScreen';
 import AddressScreen from '../Screens/AddressScreen/AddressScreen';
-import ShoppingCartScreen from '../Screens/ShoppingCartScreen/ShoppingCartScreen';
+import ShoppingCartStack from './ShoppingCartStack';
 import Entypo from 'react-native-vector-icons/Entypo'
 const BottomTabNav = () => {
     return (
@@ -19,8 +19,9 @@ const BottomTabNav = () => {
             }} >
             <Tab.Screen
                 name='home'
-                component={HomeScreen}
+                component={HomeStack}
                 options={{
+                    headerShown:false,
                     'tabBarIcon': (({ color }) =>
                         <Entypo name='home' color={color} size={20} />
                     )
@@ -40,16 +41,16 @@ const BottomTabNav = () => {
                 component={AddressScreen}
                 options={{
                     'tabBarIcon': (({ color }) =>
-                        <Entypo name='shopping-cart' color={color} size={20} />
+                        <Entypo name='menu' color={color} size={20} />
                     )
                 }}
             />
             <Tab.Screen
                 name='shopping'
-                component={ShoppingCartScreen}
+                component={ShoppingCartStack}
                 options={{
                     'tabBarIcon': (({ color }) =>
-                        <Entypo name='menu' color={color} size={20} />
+                        <Entypo name='shopping-cart' color={color} size={20} />
                     )
                 }}
             />
