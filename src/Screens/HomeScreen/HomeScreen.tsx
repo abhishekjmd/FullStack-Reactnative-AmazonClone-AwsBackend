@@ -4,7 +4,7 @@ import ProductItems from '../../Components/HomeScreenComponent/ProductItems'
 import products from '../../data/products'
 
 const HomeScreen = ({searchValue}:{searchValue: string}) => {
-    console.log(searchValue)
+    // console.log(searchValue)
     return (
         <View>
             <FlatList

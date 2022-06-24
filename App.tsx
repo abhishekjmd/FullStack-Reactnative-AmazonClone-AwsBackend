@@ -3,6 +3,9 @@ import React from 'react'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import AddressScreen from './src/Screens/AddressScreen/AddressScreen';
 import Navigation from './src/Router/Navigation';
+import { Amplify } from 'aws-amplify'
+// import awsconfig from './src/aws-exports'
+Amplify.configure(awsconfig)
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
